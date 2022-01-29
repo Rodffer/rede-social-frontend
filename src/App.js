@@ -1,7 +1,11 @@
+import Home from "./pages/home/Home";
+
 function App() {
   return (
-    <div>Rede Social</div>
-  );
+    <>
+    <Home />
+    </>
+    )
 }
 
 export default App;
