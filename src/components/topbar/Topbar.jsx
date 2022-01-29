@@ -6,12 +6,15 @@ export default function Topbar() {
   return (
     <div className='topbarContainer'>
       <div className="topbarLeft">
-        <span className='logo'>Rede Social</span>
+        <span className='topbarLogo'>Rede Social</span>
       </div>
       <div className="topbarCenter">
-        <div className='searchbar'>
-          <Search />
-          <input placeholder='Pesquise por amigos, posts ou vídeos' className="searchInput" />
+        <div className='searchBar'>
+          <Search className='searchIcon'/>
+          <input
+            placeholder='Pesquise por amigos, posts ou vídeos'
+            className="searchInput"
+          />
         </div>
       </div>
       <div className="topbarRight">
