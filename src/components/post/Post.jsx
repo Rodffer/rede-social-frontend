@@ -1,7 +1,37 @@
 import React from 'react';
+import { MoreVert } from '@material-ui/icons';
+
+import './post.css'
 
 export default function Post() {
   return (
-  <div> Post </div>
+  <div className="post">
+    <div className="postWrapper">
+      <div className="postTop">
+        <div className="postLeft">
+          <img className='postProfileImg' src="/assets/person/1.jpeg" alt="" />
+          <span className='postUsername'>Annie Timb</span>
+          <span className='postDate'>10 min atrás</span>
+        </div>
+        <div className="postRight">
+          <MoreVert />
+        </div>
+      </div>
+      <div className="postCenter">
+        <span className='postText'>Olá pessoal, esse é meu primeiro post!</span>
+        <img className='postImg' src="/assets/post/1.jpeg" alt="" />
+      </div>
+      <div className="postBottom">
+        <div className="postBottomLeft">
+          <img className='likeIcon' src="/assets/like.png" alt="" />
+          <img className='likeIcon' src="/assets/heart.png" alt="" />
+          <span className='postLikeCounter'>20 pessoas</span>
+        </div>
+        <div className="postBottomRight">
+          <div className="postCommentText">10 Comentários</div>
+        </div>
+      </div>
+    </div>
+  </div>
   );
 }
