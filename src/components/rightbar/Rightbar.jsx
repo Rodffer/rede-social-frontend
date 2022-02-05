@@ -1,5 +1,6 @@
 import React from 'react';
 import './rightbar.css'
+import Online from '../online/Online';
 
 import { Users } from '../../mockData';
 
@@ -17,13 +18,7 @@ export default function Rightbar() {
         <h4 className='rightbarTitle'>Amigos online</h4>
         <ul className="rightbarFriendList">
         {onlineFriends.map((user) => (
-            <li className="rightbarFriend" key={user.id}>
-            <div className="rightbarProfileImgContainer">
-              <img className='rightbarProfileImg' src={user.profilePicture} alt="" />
-              <span className="rightbarOnline"></span>
-            </div>
-            <span className="rightbarUsername">{user.userName}</span>
-          </li>
+            <Online  key={user.id} user={user}/>
           ))}
         </ul>
       </div>
