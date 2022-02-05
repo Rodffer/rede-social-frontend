@@ -3,32 +3,36 @@ import { MoreVert } from '@material-ui/icons';
 
 import './post.css'
 
-export default function Post() {
+import { Users } from '../../mockData';
+
+export default function Post({post}) {
+  const user = Users.filter((user) => user._id === post.userId)[0];
+
   return (
   <div className="post">
     <div className="postWrapper">
       <div className="postTop">
         <div className="postLeft">
-          <img className='postProfileImg' src="/assets/person/1.jpeg" alt="" />
-          <span className='postUsername'>Annie Timb</span>
-          <span className='postDate'>10 min atrás</span>
+          <img className='postProfileImg' src={user.profilePicture} alt="" />
+          <span className='postUsername'>{user.userName}</span>
+          <span className='postDate'>{post.date}</span>
         </div>
         <div className="postRight">
           <MoreVert />
         </div>
       </div>
       <div className="postCenter">
-        <span className='postText'>Olá pessoal, esse é meu primeiro post!</span>
-        <img className='postImg' src="/assets/post/1.jpeg" alt="" />
+        <span className='postText'>{post.description}</span>
+        <img className='postImg' src={post.photo} alt="" />
       </div>
       <div className="postBottom">
         <div className="postBottomLeft">
           <img className='likeIcon' src="/assets/like.png" alt="" />
           <img className='likeIcon' src="/assets/heart.png" alt="" />
-          <span className='postLikeCounter'>20 pessoas</span>
+          <span className='postLikeCounter'>{post.like} pessoas</span>
         </div>
         <div className="postBottomRight">
-          <div className="postCommentText">10 Comentários</div>
+          <div className="postCommentText">{post.comment} Comentários</div>
         </div>
       </div>
     </div>

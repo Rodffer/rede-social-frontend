@@ -1,7 +1,11 @@
 import React from 'react';
 import './rightbar.css'
 
+import { Users } from '../../mockData';
+
 export default function Rightbar() {
+  const onlineFriends = Users.filter((user) => user.online === true);
+
   return(
     <div className='rightbar'>
       <div className="rihtbarWrapper">
@@ -12,34 +16,15 @@ export default function Rightbar() {
         <img className='rightbarAd' src="/assets/ads.png" alt="" />
         <h4 className='rightbarTitle'>Amigos online</h4>
         <ul className="rightbarFriendList">
-          <li className="rightbarFriend">
+        {onlineFriends.map((user) => (
+            <li className="rightbarFriend" key={user.id}>
             <div className="rightbarProfileImgContainer">
-              <img className='rightbarProfileImg' src="/assets/person/3.jpeg" alt="" />
+              <img className='rightbarProfileImg' src={user.profilePicture} alt="" />
               <span className="rightbarOnline"></span>
             </div>
-            <span className="rightbarUsername">Lucas Rodrigues</span>
+            <span className="rightbarUsername">{user.userName}</span>
           </li>
-          <li className="rightbarFriend">
-            <div className="rightbarProfileImgContainer">
-              <img className='rightbarProfileImg' src="/assets/person/2.jpeg" alt="" />
-              <span className="rightbarOnline"></span>
-            </div>
-            <span className="rightbarUsername">Geraldo Rivier</span>
-          </li>
-          <li className="rightbarFriend">
-            <div className="rightbarProfileImgContainer">
-              <img className='rightbarProfileImg' src="/assets/person/1.jpeg" alt="" />
-              <span className="rightbarOnline"></span>
-            </div>
-            <span className="rightbarUsername">Annie Timb</span>
-          </li>
-          <li className="rightbarFriend">
-            <div className="rightbarProfileImgContainer">
-              <img className='rightbarProfileImg' src="/assets/person/4.jpeg" alt="" />
-              <span className="rightbarOnline"></span>
-            </div>
-            <span className="rightbarUsername">Maria Luz</span>
-          </li>
+          ))}
         </ul>
       </div>
     </div>
