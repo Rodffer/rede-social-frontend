@@ -3,7 +3,13 @@ import { RssFeed, School, Event, WorkOutline, HelpOutline, PlayCircleFilledOutli
 
 import './sidebar.css';
 
+import CloseFriend from '../closeFriend/CloseFriend';
+import { Users } from '../../mockData';
+
 export default function Sidebar() {
+
+  const friends = Users;
+
   return(
     <div className='sidebar'>
       <div className="sidebarWrapper">
@@ -50,34 +56,9 @@ export default function Sidebar() {
           <hr className='sidebarHr'/>
 
           <ul className="sidebarFiendList">
-            <li className="sidebarFriend">
-              <img className='sidebarFriendImg' src="/assets/person/4.jpeg" alt="" />
-              <span className="sidebarFriendName">Maria Luz</span>
-            </li>
-            <li className="sidebarFriend">
-              <img className='sidebarFriendImg' src="/assets/person/8.jpeg" alt="" />
-              <span className="sidebarFriendName">Yenn Veng</span>
-            </li>
-            <li className="sidebarFriend">
-              <img className='sidebarFriendImg' src="/assets/person/7.jpeg" alt="" />
-              <span className="sidebarFriendName">João Silva</span>
-            </li>
-            <li className="sidebarFriend">
-              <img className='sidebarFriendImg' src="/assets/person/1.jpeg" alt="" />
-              <span className="sidebarFriendName">Annie Timb</span>
-            </li>
-            <li className="sidebarFriend">
-              <img className='sidebarFriendImg' src="/assets/person/2.jpeg" alt="" />
-              <span className="sidebarFriendName">Geraldo Rivier</span>
-            </li>
-            <li className="sidebarFriend">
-              <img className='sidebarFriendImg' src="/assets/person/3.jpeg" alt="" />
-              <span className="sidebarFriendName">Lucas Rodrigues</span>
-            </li>
-            <li className="sidebarFriend">
-              <img className='sidebarFriendImg' src="/assets/person/5.jpeg" alt="" />
-              <span className="sidebarFriendName">Emy Emanu</span>
-            </li>
+            {friends.map((user) => (
+              <CloseFriend key={user.id} user={user}/>
+          ))}
           </ul>
       </div>
     </div>

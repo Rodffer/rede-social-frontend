@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './online.css';
+
 export default function Online({user}) {
   return (
     <li className="rightbarFriend">
