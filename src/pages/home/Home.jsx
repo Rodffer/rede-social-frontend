@@ -4,17 +4,20 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import Topbar from '../../components/topbar/Topbar';
 import Feed from '../../components/feed/Feed';
 
+import Profile from '../profile/Profile';
+
 import './home.css';
 
 export default function Home() {
   return (
     <>
-      <Topbar />
+    <Profile />
+      {/* <Topbar />
       <div className="homeContainer">
         <Sidebar />
         <Feed />
         <Rightbar />
-      </div>
+      </div> */}
     </>
   );
 }
