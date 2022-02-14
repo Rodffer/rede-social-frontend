@@ -7,6 +7,8 @@ import { Users } from '../../mockData';
 export default function Rightbar({ profile }) {
   const onlineFriends = Users.filter((user) => user.online === true);
 
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
   const HomeRightbar = () => {
     return (
       <>
@@ -46,7 +48,7 @@ export default function Rightbar({ profile }) {
         <h4 className='rightbarTitle'>Seguindo</h4>
         <div className="rightbarFollowings">
           <div className="rightbarFollowing">
-            <img className='rightbarFollowingImg' src="assets/person/1.jpeg" alt="" />
+            <img className='rightbarFollowingImg' src={`${PF}/person/1.jpeg`} alt="" />
             <div className="span rightbarFollowingName">Joyner</div>
           </div>
         </div>
