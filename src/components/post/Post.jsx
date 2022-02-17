@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import * as timeago from 'timeago.js'
 import TimeAgo from 'timeago-react'
@@ -21,13 +22,13 @@ export default function Post({post}) {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`users/${post.userId}`);
+      const res = await axios.get(`/users=userId=${post.userId}`);
 
       setUser(res.data);
     }
 
     fetchUser();
-  });
+  }, [post.userId]);
 
   const HandlerAddLike = () => {
     setLike(isLiked ? like - 1 : like + 1);
@@ -39,7 +40,9 @@ export default function Post({post}) {
     <div className="postWrapper">
       <div className="postTop">
         <div className="postLeft">
-          <img className='postProfileImg' src={user.profilePicture || PF+"person/noAvatar.png"} alt="" />
+          <Link to={`profile/${user.userName}`}>
+            <img className='postProfileImg' src={user.profilePicture || PF+"person/noAvatar.png"} alt="" />
+          </Link>
           <span className='postUsername'>{user.userName}</span>
           <span className='postDate'>
             <TimeAgo datetime={post.createdAt} locale='pt_BR' />

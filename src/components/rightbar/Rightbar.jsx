@@ -4,8 +4,8 @@ import Online from '../online/Online';
 
 import { Users } from '../../mockData';
 
-export default function Rightbar({ profile }) {
-  const onlineFriends = Users.filter((user) => user.online === true);
+export default function Rightbar({ user }) {
+  // const onlineFriends = Users.filter((user) => user.online === true);
 
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
@@ -19,13 +19,13 @@ export default function Rightbar({ profile }) {
         <img className='rightbarAd' src="/assets/ads.png" alt="" />
         <h4 className='rightbarTitle'>Amigos online</h4>
         <ul className="rightbarFriendList">
-          {onlineFriends.map((user) => (
+          {/* {onlineFriends.map((user) => (
             <Online key={user.id} user={user} />
-          ))}
+          ))} */}
         </ul>
       </>
-    )
-  }
+    );
+  };
 
   const ProfileRightbar = () => {
     return (
@@ -34,15 +34,20 @@ export default function Rightbar({ profile }) {
         <div className="rightbarInfo">
           <div className="rightbarInfoItem">
             <div className="span rightbarInfoKey">Cidade: </div>
-            <div className="span rightbarInfoValue">Goiânia</div>
+            <div className="span rightbarInfoValue">{ user.city }</div>
           </div>
           <div className="rightbarInfoItem">
             <div className="span rightbarInfoKey">País: </div>
-            <div className="span rightbarInfoValue">Brasil</div>
+            <div className="span rightbarInfoValue">{ user.from }</div>
           </div>
           <div className="rightbarInfoItem">
             <div className="span rightbarInfoKey">Relacionamento: </div>
-            <div className="span rightbarInfoValue">Solteiro</div>
+            <div className="span rightbarInfoValue">
+              { user.relationship === 1 
+                  ? "Solteiro"
+                  : user.relationship === 2
+                  ? "Casado"
+                  : "-"}</div>
           </div>
         </div>
         <h4 className='rightbarTitle'>Seguindo</h4>
@@ -59,7 +64,7 @@ export default function Rightbar({ profile }) {
   return (
     <div className='rightbar'>
       <div className="rihtbarWrapper">
-        {profile ? <ProfileRightbar /> : <HomeRightbar />}
+        {user ? <ProfileRightbar /> : <HomeRightbar />}
       </div>
     </div>
   );
